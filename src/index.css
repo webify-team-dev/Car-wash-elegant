@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 15% 8%;
+    --foreground: 45 20% 95%;
+
+    --card: 220 15% 12%;
+    --card-foreground: 45 20% 95%;
+
+    --popover: 220 15% 10%;
+    --popover-foreground: 45 20% 95%;
+
+    --primary: 45 90% 55%;
+    --primary-foreground: 220 15% 8%;
+
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 45 20% 95%;
+
+    --muted: 220 15% 20%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 45 90% 55%;
+    --accent-foreground: 220 15% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 18%;
+    --ring: 45 90% 55%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --gold: 45 90% 55%;
+    --gold-light: 45 85% 65%;
+    --gold-dark: 45 95% 45%;
+    --charcoal: 220 15% 8%;
+    --charcoal-light: 220 15% 12%;
+    --charcoal-lighter: 220 15% 18%;
+
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(45 90% 55%), hsl(35 95% 50%));
+    --gradient-dark: linear-gradient(180deg, hsl(220 15% 8%), hsl(220 15% 5%));
+    --gradient-card: linear-gradient(145deg, hsl(220 15% 14%), hsl(220 15% 10%));
+    --gradient-hero: linear-gradient(135deg, hsl(220 15% 8% / 0.95), hsl(220 15% 5% / 0.98));
+
+    /* Shadows */
+    --shadow-gold: 0 4px 30px hsl(45 90% 55% / 0.15);
+    --shadow-card: 0 10px 40px hsl(0 0% 0% / 0.3);
+    --shadow-hover: 0 20px 50px hsl(0 0% 0% / 0.4);
+
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --sidebar-background: 220 15% 10%;
+    --sidebar-foreground: 45 20% 95%;
+    --sidebar-primary: 45 90% 55%;
+    --sidebar-primary-foreground: 220 15% 8%;
+    --sidebar-accent: 220 15% 18%;
+    --sidebar-accent-foreground: 45 20% 95%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 45 90% 55%;
+  }
+
+  .dark {
+    --background: 220 15% 8%;
+    --foreground: 45 20% 95%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(45 90% 55%), hsl(35 95% 50%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-gold {
+    background: linear-gradient(135deg, hsl(45 90% 55%), hsl(35 95% 50%));
+  }
+
+  .border-gradient-gold {
+    border: 2px solid transparent;
+    background: linear-gradient(hsl(220 15% 12%), hsl(220 15% 12%)) padding-box,
+                linear-gradient(135deg, hsl(45 90% 55%), hsl(35 95% 50%)) border-box;
+  }
+
+  .glass-card {
+    background: hsl(220 15% 12% / 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(220 15% 25% / 0.5);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(220 15% 8%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(45 90% 55% / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(45 90% 55% / 0.5);
+}
